@@ -2,24 +2,27 @@
 
 int main(void) 
 {
-	int month;
-	scanf("%d", &month);
-	switch(month)
+	int meses;
+	scanf("%d", &meses);
+	int daysBefore = 0;
+	int isCorrectlyComputed = 0;
+	switch(meses)
 	{
-		case 1: puts("Enero tiene 31 dias"); break;
-		case 2 : puts("Febrero tiene 28-29 dias "); break;
-		case 3 : puts("Marzo tiene 31 dias "); break;
-		case 4 : puts("Abril tiene 30 dias"); break;
-		case 5 : puts("Mayo tiene 31 dias"); break;
-		case 6 : puts("Junio tiene 30 dias"); break;
-		case 7 : puts("Julio tiene 31 dias"); break;
-		case 8 : puts("Agosto tiene 31 dias"); break;
-		case 9 : puts("Septiembre tiene 30 dias"); break;
-		case 10 : puts("Octubre tiene 31 dias"); break;
-		case 11 : puts("Noviembre tiene 30 dias"); break;
-		case 12 : puts("Diciembre tiene 31 dias"); break;
-		default: puts("Error: tu numero no tiene un mes definido.");
+		case 12: daysBefore += 30;
+		case 11: daysBefore += 31;
+		case 10: daysBefore += 30;
+		case 9:  daysBefore += 31;
+		case 8:  daysBefore += 31;
+		case 7:  daysBefore += 30;
+		case 6:  daysBefore += 31;
+		case 5:  daysBefore += 30;
+		case 4:  daysBefore += 31;
+		case 3:  daysBefore += 29;
+		case 2:  daysBefore += 31;
+		case 1:	isCorrectlyComputed = 1;  break;
+		default: puts("Error: No exite ese mes en el calendario.");
 	}
+	if (isCorrectlyComputed)
+		printf("hay %d dias antes del mes indicado.\n", daysBefore);
 	return 0;
 }
-   
